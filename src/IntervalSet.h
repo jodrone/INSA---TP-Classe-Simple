@@ -119,10 +119,17 @@ protected:
 	// Mode d'emploi :
 	// Initialise l'espace mémoire et les variables de l'objet
 	
-	bool Insertion ( Interval &element , long position );
+	bool Insertion ( Interval &element , long lIndex );
 	// Mode d'emploi :
 	// Ajoute l'élément à la position demandée
 	
+	bool Tri();
+	// Mode d'emploi :
+	// Trie la liste chainée
+	
+	bool Suppression( long lIndex ); // Nécéssaire?
+	// Mode d'emploi :
+	// Supprime l'intervalle dans la liste
 	// méthodes de gestion de la liste d'éléments
 
 //----------------------------------------------------- Attributs protégés

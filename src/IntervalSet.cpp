@@ -97,14 +97,16 @@ IntervalSet::~IntervalSet ( )
 
 //------------------------------------------------------------------ PRIVE
 
-IntervalSet::Init ( )
+int IntervalSet::Init ( )
 // Algorithme : 
 // Trivial
 {
   nombre_elements = 0;
   tete  = NULL;
   queue = NULL;
+  return 0;
 } //----- Fin de Init
+
 
 //----------------------------------------------------- Méthodes protégées
 
