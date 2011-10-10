@@ -19,8 +19,8 @@ struct Interval
 	{ //Permet de gérer la liste doublement chaînée
   		Interval *suivant;
   		Interval *precedent;
-  		long lLeft;
-  		long lRight;
+  		long Left;
+  		long Right;
 	} ; 
 
 
@@ -127,6 +127,11 @@ protected:
 	// Mode d'emploi :
 	// Trie la liste chainée
 	
+	bool Comparaison( const Interval &unPremierIntervalle,
+					  const Interval &unDeuxiemeIntervalle );
+	// Mode d'emploi :
+	// Vérifie si deux intervalles sont disjoints
+
 	bool Suppression( long lIndex ); // Nécéssaire?
 	// Mode d'emploi :
 	// Supprime l'intervalle dans la liste

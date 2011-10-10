@@ -24,12 +24,30 @@ using namespace std;
 
 
 bool IntervalSet::AddInterval ( long lLeft, long lRight )
-//Algorithme :
-//
+// Algorithme :
+// Vérification itérative de la disjointure
 {
+	int i;
+	bool disjointure = 1;
+	bool resultat_comparaison;
+	Interval temp;
+	temp.suivant   = NULL;
+	temp.precedent = NULL;
+	temp.Left  = lLeft;
+	temp.Right = lRight;
+	for (i=0;i <= nombre_elements;i++)
+	  {
+		resultat_comparaison = 0;
+		  //Comparaison ( temp, GetInterval(i, 
+		
+
+	  };
+
+
+	
 } //----- Fin de AddInterval
 
-bool IntervalSet::AddIntervalSet ( IntervalSet& unIntervalSet )
+bool IntervalSet::AddIntervalSet ( const IntervalSet& unIntervalSet )
 // Algorithme :
 //
 {
@@ -97,7 +115,7 @@ IntervalSet::~IntervalSet ( )
 
 //------------------------------------------------------------------ PRIVE
 
-int IntervalSet::Init ( )
+bool IntervalSet::Init ( )
 // Algorithme : 
 // Trivial
 {
@@ -107,6 +125,21 @@ int IntervalSet::Init ( )
   return 0;
 } //----- Fin de Init
 
+bool IntervalSet::Comparaison( const Interval &unPremierIntervalle,
+							   const Interval &unDeuxiemeIntervalle)
+// Algorithme : 
+// left1 > right2 || right1 < left2
+{
+  if (unPremierIntervalle.Left  > unDeuxiemeIntervalle.Right ||
+	  unPremierIntervalle.Right < unDeuxiemeIntervalle.Left)
+  	{
+		return 1;
+  	}
+  else
+  	{
+		return 0;
+ 	}	
+};
 
 //----------------------------------------------------- Méthodes protégées
 
