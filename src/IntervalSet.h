@@ -27,20 +27,49 @@ class IntervalSet : public Ancetre
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	// type Méthode ( liste des paramètres );
-	// Mode d'emploi :
+	
+  	bool Add (long lLeft, long lRight);
+	// Mode d'emploi (Ajout d'un intervalle) :
+	//
+	// Contrat : 
+	// lLeft <= lRight
+	
+	bool Add( const IntervalSet& unIntervalSet );
+	// Mode d'emploi (Ajout d'un IntervalSet)
+	//
+	// Contrat : Argument non vide
+	// 
+	
+	bool Remove(long lPos);
+	// Mode d'emploi (Suppression d'un intervalle)
 	//
 	// Contrat :
 	//
 
-
-//------------------------------------------------- Surcharge d'opérateurs
-	IntervalSet & operator = ( const IntervalSet & unIntervalSet );
+	long Count();
 	// Mode d'emploi :
+	// Cette méthode retourne le nombre d'intervalles contenus dans l'objet
 	//
-	// Contrat :
+	// Contrat : Néant
+	
+	bool GetInterval(long lPos, long& lLeft, long& lRight);
+	//Mode d'emploi :
 	//
-
+	//Contrat :
+	//
+	
+	IntervalSet& Union(IntervalSet& unIntervalSet);
+	// Mode d'emploi
+	//
+	// Contrat
+	//
+	
+	IntervalSet& Intersection(IntervalSet& unIntervalSet);
+	// Mode d'emploi
+	//
+	// Contrat
+	//
+	
 
 //-------------------------------------------- Constructeurs - destructeur
 	IntervalSet ( const IntervalSet & unIntervalSet );
@@ -68,9 +97,11 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
 
+//Liste chainé de tableaux de [lLeft, lRight]
+
 };
 
-//--------------------------- Autres définitions dépendantes de <IntervalSet>
+//----------------------- Autres définitions dépendantes de <IntervalSet>
 
 #endif // INTERVALSET_H
 

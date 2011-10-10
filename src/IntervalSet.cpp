@@ -5,7 +5,7 @@
     copyright            : (C) 2011 par Tristan Pourcelot & Jordan Vincent 
 *************************************************************************/
 
-//---------- Réalisation de la classe <IntervalSet> (fichier IntervalSet.cpp) -------
+//-- Réalisation de la classe <IntervalSet> (fichier IntervalSet.cpp) ----
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -26,14 +26,6 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
-
-
-//------------------------------------------------- Surcharge d'opérateurs
-IntervalSet & IntervalSet::operator = ( const IntervalSet & unIntervalSet )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
