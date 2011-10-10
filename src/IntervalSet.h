@@ -15,13 +15,13 @@
 
 //------------------------------------------------------------------ Types 
 
-struct Interval
-{ //Permet de gérer la liste doublement chaînée
-  Interval* suivant;
-  Interval* precedent;
-  long lLeft;
-  long lRight;
-} // Fin de Interval
+typedef struct 
+	{ //Permet de gérer la liste doublement chaînée
+  		struct Interval *suivant;
+  		struct Interval *precedent;
+  		long lLeft;
+  		long lRight;
+	} Interval; 
 
 
 
