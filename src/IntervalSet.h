@@ -15,13 +15,13 @@
 
 //------------------------------------------------------------------ Types 
 
-typedef struct 
+struct Interval
 	{ //Permet de gérer la liste doublement chaînée
-  		struct Interval *suivant;
-  		struct Interval *precedent;
+  		Interval *suivant;
+  		Interval *precedent;
   		long lLeft;
   		long lRight;
-	} Interval; 
+	} ; 
 
 
 
@@ -33,7 +33,7 @@ typedef struct
 //
 //------------------------------------------------------------------------ 
 
-class IntervalSet : 
+class IntervalSet  
 {
 //----------------------------------------------------------------- PUBLIC
 

@@ -20,7 +20,19 @@ NOM_SPEC_INITIAL=$(NUM_BINOME)_specif
 NOM_MAN_FINAL=$(NUM_BINOME)_man
 NOM_MAN_INITIAL=$(NUM_BINOME)_manuel
 
-all : doc
+
+all : compile 
+
+#Construction de l'exécutable
+
+compile : $(NOM_EXEC).o
+	cd src && $(CC) -o $(NOM_EXEC) $(NOM_EXEC).o & cd  ..
+
+$(NOM_EXEC).o :
+	cd src && $(CC) $(CFLAGS) -o $(NOM_EXEC).o -c $(NOM_EXEC).cpp && cd ..
+
+clean :
+	cd $(DOSSIER_SOURCE) && rm *.o && rm *.out && cd ..
 
 
 #Gestion de la documentation
@@ -40,4 +52,4 @@ man :
 	cd $(DOSSIER_DOC) && pdflatex $(NOM_MAN_INITIAL).tex && mv $(NOM_MAN_INITIAL).pdf $(NOM_MAN_FINAL).pdf
 	cd ..
 
-.PHONY: clean_doc
+.PHONY: clean_doc clean
