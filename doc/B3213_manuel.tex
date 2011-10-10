@@ -1,0 +1,77 @@
+\documentclass[a4paper,french,10pt,twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english, francais]{babel}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fullpage}
+
+\title{TP 3IF - C++ Classe Simple : Spécifications}
+\author{T. Pourcelot \& J. Vincent}
+
+\begin{document}
+
+%%%%%%%%%%%%% Definition des en têtes et pieds de page
+
+\pagestyle{fancy}
+\fancyhf{} % on efface tout et on recommence
+	% PIED DE PAGE :
+	\fancyfoot[LO,RE]{3IF - Binôme 3213 \hfill{} \textbf{Manuel d'utilisation - TP-AC - Classe Simple} \hfill{} \thepage }
+	% Epaisseur des traits
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{2pt}
+
+
+
+%%%%%%%%%%%%%%%%%%
+% Page de Garde  %
+%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+
+\begin{minipage}[c]{0.5\linewidth}
+  \vspace{50pt}
+  \includegraphics[bb=0 50 350 100, scale=0.3]{images/insa.JPG}
+\end{minipage}
+\begin{minipage}[r]{0.5\linewidth}
+  \vspace*{25pt}
+  \begin{flushright}
+	\LARGE D\'epartement \\ Informatique \\ \rule{\linewidth}{2pt}
+  \end{flushright}
+\end{minipage}
+
+\vspace*{5cm}
+
+\setlength\fboxrule{2pt}
+\fbox{
+	\begin{minipage}{0.95\textwidth}
+    \begin{center}
+		\vspace*{0.21cm}\Huge \color{blue} \textbf{\bsc{Manuel d'utilisation} }
+	\end{center}
+	\end{minipage}
+}
+
+\vspace{1cm}
+
+\begin{center}
+  \Large \textbf{\bsc{TP-AC \\ Classe Simple}}\\
+\end{center}
+
+\begin{center}
+	\vspace*{3cm}
+	%Changer les noms ici
+	\LARGE \bsc{Binôme 3213}\\ \vspace{10pt}\large \color{black} Tristan \bsc{Pourcelot} \\ Jordan \bsc{Vincent} \\
+				   \vspace*{1.5cm}
+				   %\Large Responsable : P. \bsc{Girard}\\
+
+				   \vspace*{1cm}
+
+				   \Large 3IF - Groupe 2 \hfill Ann\'ee scolaire 2011-2012\\
+				   \vspace*{1cm}
+				   \textbf{\Large Institut National des Sciences Appliqu\'{e}es de Lyon} \pagebreak
+\end{center}
+$\cdots$
+\end{document}

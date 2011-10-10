@@ -1,0 +1,179 @@
+\documentclass[a4paper,french,10pt,twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english, francais]{babel}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fullpage}
+
+\title{TP 3IF - C++ Classe Simple : Spécifications}
+\author{T. Pourcelot \& J. Vincent}
+
+\begin{document}
+
+%%%%%%%%%%%%% Definition des en têtes et pieds de page
+
+\pagestyle{fancy}
+\fancyhf{} % on efface tout et on recommence
+	% PIED DE PAGE :
+	\fancyfoot[LO,RE]{3IF - Binôme 3213 \hfill{} \textbf{Sp\'ecifications - TP C++ - Classe Simple} \hfill{} \thepage }
+	% Epaisseur des traits
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{2pt}
+
+
+
+%%%%%%%%%%%%%%%%%%
+% Page de Garde  %
+%%%%%%%%%%%%%%%%%%
+
+
+\begin{minipage}[c]{0.5\linewidth}
+  \vspace{50pt}
+  \includegraphics[bb=0 50 350 100, scale=0.3]{images/insa.JPG}
+\end{minipage}
+\begin{minipage}[r]{0.5\linewidth}
+  \vspace*{25pt}
+  \begin{flushright}
+	\LARGE D\'epartement \\ Informatique \\ \rule{\linewidth}{2pt}
+  \end{flushright}
+\end{minipage}
+
+\vspace*{1cm}
+\thispagestyle{empty}
+\begin{center}
+  \Huge \textbf{\bsc{TP C++ \\ Classe Simple}}\\
+\end{center}
+\vspace*{1.3cm}
+
+\setlength\fboxrule{2pt}
+\fbox{
+	\begin{minipage}{0.95\textwidth}
+    \begin{center}
+		\vspace*{0.21cm}\LARGE \color{blue} \textbf{\bsc{Dossier de Sp\'ecification} }
+	\end{center}
+	\end{minipage}
+}
+
+
+\begin{center}
+	\vspace*{1cm}
+	%Changer les noms ici
+	\LARGE \bsc{Binôme 3213}\\ \vspace{10pt}\large \color{black} Tristan \bsc{Pourcelot} \\ Jordan \bsc{Vincent} \\
+				   \vspace*{1.5cm}
+				   %\Large Responsable : P. \bsc{Girard}\\
+
+				   \vspace*{1cm}
+
+				   \Large 3IF - Groupe 2 \hfill Ann\'ee scolaire 2011-2012\\
+				   \vspace*{1cm}
+				   \textbf{\Large Institut National des Sciences Appliqu\'{e}es de Lyon} \pagebreak
+				 \end{center}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%
+%  Corps du doc	 %
+%%%%%%%%%%%%%%%%%%
+
+\part{Spécifications générales du programme}
+La classe IntervalSet a pour rôle principal de gérer un ensemble d'intervalles
+
+\part{Définitions Globales}
+
+\begin{enumerate}
+\item{définition d'un intervalle}
+\newline{}
+Un intervalle est un ensemble défini par ses deux bornes borne\_inf et borne\_sup.
+Ces deux bornes sont de type \verb!long signed int!.\\
+D'autre part on a bien évidemment $borne_sup \geq borne_inf$\\
+(ie -> on accepte un intervalle composé d'un seul élément t.q. borne\_sup = borne\_inf)\\
+De même, il faut noter qu'il est impossible de traiter un intervalle infini.
+
+
+\item{Définition d'un ensemble d'intervalle}
+\newline{}
+\end{enumerate}
+Un ensemble d'intervalles est un groupe d'intervalles disjoints, çad qu'ils n'ont aucun élément en commun.\\
+Ainsi, deux intervalles [borne\_inf1 , borne\_sup1] et [borne\_inf2 , borne\_sup2] t.q. borne\_sup1 = borne\_inf2 ne sont pas disjoints!
+\part{Rôle de la classe}
+
+La classe IntervalSet a pour rôle principal de gérer un ensemble d'intervalles
+On peut ajouter un intervalle ou un ensemble d'intervalles à la classe.
+D'autre part, cet ensemble d'intervalles est trié dans l'ordre croissant des valeurs inférieures.
+La classe permet d' afficher sur la sortie standard la liste des intervalles qu'il contient et leur nombre.
+A chaque intervalle de la classe corespond un indice. Cet indice permet de repérer de manière unique un intervalle de l'ensemble.
+Cet indice permet de sélectionner ou de supprimer un intervalle de l'ensemble. 
+On peut effectuer des opérations ensemblistes entre deux sets d'intervalles (union et intersection)
+
+\begin{itemize}
+	\item{\large Caractéristiques d'un objet de notre classe }
+	\begin{itemize}
+		\item{Notre classe contient une collection triée de structures \verb!Interval! contenant l'ensemble des intervalles}
+		\item{Un nombre d'index \verb!interval_count! qui répertorie la longueur de la liste d'intervalles}
+		\item{FACULTATIF : Un attribut \verb!etendue! de type \verb!Interval! qui recense l'étendue de la collection d'intervalle}
+	\end{itemize}
+	\item{\large Spécifications de l'interface publique}
+	\begin{itemize}
+		\item{Constructeur \verb!IntervalSet()!}\\
+			Ce constructeur ne prends aucun argument, et ne fait qu'initialiser l'espace mémoire pour la structure\\
+		\item{Constructeur de recopie \verb!IntervalSet(Bordel...)!  }\\
+			Ce constructeur prends en argument un pointeur vers un IntervalSet existant, et recopie 
+			la structure pointée dans un nouvel espace qu'il alloue.\\
+		\item{Procédure d'affichage \verb!Display!}\\
+			Cette procédure ne prends pas d'argument. Elle affiche les différents intervalles de la collection, en partant du premier
+			(borne\_inf la plus petite), au plus grand (borne\_sup la plus grande).\\
+			La sortie attendue est :\\ 
+				\verb!"L'intervalle numéro 0 commence à borne_inf_O et se termine à borne_sup_0."!
+				\dots \\
+				\verb!"L'intervalle numéro N commence à borne_inf_n et se termine à borne_sup_n."!\\
+		\item{Fonction booléen : \verb!AddInterval(Interval)!}\\
+			Cette méthode prends en argument un intervalle de type \verb!Interval! et renvoie un booléen
+			signifiant le succès ou non de l'ajout de l'intervalle à la collection.
+			Elle teste la validité de cet intervalle (disjonction avec la collection déjà existante)
+			puis, si ce test est correct, l'ajoute à l'ensemble à la bonne position (respect de l'ordre).
+			Si jamais l'ensemble n'est pas disjoint de la collection, il n'est pas ajouté à l'ensemble et 
+			la méthode retourne la valeur FALSE.
+			Contrat : l'argument Interval doit être défini de manière correcte (voir doc du type Interval)
+		\item{Fonction booléen : \verb!AddIntervalSet(IntervalSet)!}\\
+			Cette méthode prends en argument un ensemble d'intervalles de type \verb!IntervalSet! et renvoie un booléen
+			signifiant le succès ou non de l'ajout de la collection d'intervalles.
+			Elle teste la validité de chaque intervalle (disjonction avec la collection déjà existante)
+			puis, si tout les tests sont corrects, on ajoute un à un les différents intervalles contenus dans l'ensemble
+			passé en argument.
+			Si jamais au moins un intervalle n'est pas disjoint de la collection, aucun intervalle n'est ajouté, et la 
+			méthode retourne la valeur FALSE.
+		\item{Fonction Entier : \verb!Count()!}\\
+			Cette méthode renvoie le nombre d'intervalles contenus dans l'ensemble, et 0 si l'ensemble est vide.
+		\item{Fonction Interval : \verb!GetInterval( Entier indice )!}\\
+			Cette méthode renvoie une structure du type \verb!Interval! dont l'indice dans la structure est passé en
+			argument.\\
+			CONTRAT : Cet indice doit être compris entre $0$ et IntervalSet.Count().\\
+			Si la collection de IntervalSet est vide (IntervalSet.Count=0), cette méthode renvoie l'ensemble [0,0]
+		\item{Fonction Booléen : \verb!Remove(Entier indice)!}\\
+			Cette méthode prends en argument un entier \verb!indice! et supprime l'intervalle dont l'index dans la collection correspond
+			à l'indice passé en argument.\\
+			CONTRAT : Cet indice doit être compris entre $0$ et IntervalSet.Count().\\
+			En cas de succès, cette méthode renvoie la valeur \verb!TRUE!.\\
+			En cas d'échec (indice $>$ IntervalSet.count, erreur lors de la suppression\dots), cette méthode renvoie FALSE. 
+		\item{Fonction IntervalSet :\verb! Union(IntervalSet a_intervalle)!}\\
+			Cette méthode renvoie la réunion d'intervalle de deux ensembles.\\
+			Elle prend comme argument une collection d'intervalles de type IntervalSet.
+			On désigne S la collection d'intervalle de sortie, A la collection passée en argument, et C la collection propre de l'objet.\\
+			On teste les différents intervalles de A et de C, afin de trouver les points communs (jointures), et si des intervalles se recoupent,
+			on les fusionnent. On ajoute ensuite cette collection d'intervalles fusionnés et disjoints à la collection S, avant de la retourner.
+		\item{Fonction IntervalSet : \verb! Intersection(IntervalSet a_intervalle!}\\
+			Cette méthode renvoie l'intersection entre deux ensembles d'intervalles.\\
+			Elle prend comme argument une collection d'intervalles de type \verb!IntervalSet!.
+			On désigne S la collection d'intervalle de sortie, A la collection passée en argument, et C la collection propre de l'objet.\\
+			On teste les différents intervalles de A et de C, afin de trouver les points communs (jointures), et si des intervalles se recoupent,
+			on ne sélectionne que l'intersection. On ajoute ensuite cette collection d'intervalles à la collection S, avant de la retourner.
+	\end{itemize}
+\end{itemize}
+
+\end{document}
