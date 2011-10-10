@@ -15,56 +15,69 @@
 
 //------------------------------------------------------------------ Types 
 
+struct Interval
+{ //Permet de gérer la liste doublement chaînée 
+  Interval* suivant;
+  Interval* precedent;
+  long lLeft;
+  long lRight;
+   
+} // Fin de Interval
+
+
+
 //------------------------------------------------------------------------ 
 // Rôle de la classe <IntervalSet>
-//
+// 
+// La classe IntervalSet a pour rôle de gérer des ensembles d'intervalles
+// disjoints.
 //
 //------------------------------------------------------------------------ 
 
-class IntervalSet : public Ancetre
+class IntervalSet : 
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
 	
-  	bool Add (long lLeft, long lRight);
+  	bool AddInterval ( long lLeft, long lRight );
 	// Mode d'emploi (Ajout d'un intervalle) :
 	//
 	// Contrat : 
 	// lLeft <= lRight
 	
-	bool Add( const IntervalSet& unIntervalSet );
+	bool AddIntervalSet ( const IntervalSet& unIntervalSet );
 	// Mode d'emploi (Ajout d'un IntervalSet)
 	//
 	// Contrat : Argument non vide
 	// 
 	
-	bool Remove(long lPos);
+	bool Remove ( long lPos );
 	// Mode d'emploi (Suppression d'un intervalle)
 	//
 	// Contrat :
 	//
 
-	long Count();
+	long Count ( );
 	// Mode d'emploi :
 	// Cette méthode retourne le nombre d'intervalles contenus dans l'objet
 	//
 	// Contrat : Néant
 	
-	bool GetInterval(long lPos, long& lLeft, long& lRight);
+	bool GetInterval ( long lPos, long& lLeft, long& lRight );
 	//Mode d'emploi :
 	//
 	//Contrat :
 	//
 	
-	IntervalSet& Union(IntervalSet& unIntervalSet);
+	IntervalSet& Union ( IntervalSet& unIntervalSet );
 	// Mode d'emploi
 	//
 	// Contrat
 	//
 	
-	IntervalSet& Intersection(IntervalSet& unIntervalSet);
+	IntervalSet& Intersection ( IntervalSet& unIntervalSet );
 	// Mode d'emploi
 	//
 	// Contrat
@@ -95,9 +108,11 @@ public:
 protected:
 //----------------------------------------------------- Méthodes protégées
 
+	//Méthodes de tri et de gestion de la liste
+
 //----------------------------------------------------- Attributs protégés
 
-//Liste chainé de tableaux de [lLeft, lRight]
+	//Liste chainée de tableaux de pointeurs vers des tableaux [lLeft, lRight]
 
 };
 

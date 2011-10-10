@@ -21,12 +21,53 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type IntervalSet::Méthode ( liste des paramètres )
+
+
+bool IntervalSet::AddInterval ( long lLeft, long lRight )
+//Algorithme :
+//
+{
+} //----- Fin de AddInterval
+
+bool IntervalSet::AddIntervalSet ( IntervalSet& unIntervalSet )
 // Algorithme :
 //
-//{
-//} //----- Fin de Méthode
+{
+} //----- Fin de AddIntervalSet
 
+bool IntervalSet::Remove ( long lPos )
+//Algorithme :
+//
+{
+} //----- Fin de Remove
+
+
+long IntervalSet::Count ( )
+//Algorithme : Trivial
+//
+{
+	//return this.nombre_elements
+} //----- Fin de Count
+
+
+bool IntervalSet::GetInterval ( long lPos, long& lLeft, long& lRight )
+//Algorithme :
+//
+{
+} //----- Fin de GetInterval
+
+
+IntervalSet& IntervalSet::Union ( IntervalSet& unIntervalSet )
+//Algorithme :
+//
+{
+} //----- Fin de Union
+
+IntervalSet& IntervalSet::Intersection ( IntervalSet& unIntervalSet )
+//Algorithme :
+//
+{
+} //----- Fin de Intersection
 
 //-------------------------------------------- Constructeurs - destructeur
 IntervalSet::IntervalSet ( const IntervalSet & unIntervalSet )
