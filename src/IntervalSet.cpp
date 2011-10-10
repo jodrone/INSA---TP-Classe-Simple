@@ -46,7 +46,7 @@ long IntervalSet::Count ( )
 //Algorithme : Trivial
 //
 {
-	//return this.nombre_elements
+	return nombre_elements;
 } //----- Fin de Count
 
 
@@ -69,18 +69,22 @@ IntervalSet& IntervalSet::Intersection ( IntervalSet& unIntervalSet )
 {
 } //----- Fin de Intersection
 
+
 //-------------------------------------------- Constructeurs - destructeur
 IntervalSet::IntervalSet ( const IntervalSet & unIntervalSet )
 // Algorithme :
 //
-{
+{ 
+  Init();
+  AddIntervalSet( unIntervalSet );
 } //----- Fin de IntervalSet (constructeur de copie)
 
 
 IntervalSet::IntervalSet ( )
-// Algorithme :
+// Algorithme : Trivial
 //
 {
+  Init();
 } //----- Fin de IntervalSet
 
 
@@ -92,6 +96,15 @@ IntervalSet::~IntervalSet ( )
 
 
 //------------------------------------------------------------------ PRIVE
+
+IntervalSet::Init ( )
+// Algorithme : 
+// Trivial
+{
+  nombre_elements = 0;
+  tete  = NULL;
+  queue = NULL;
+} //----- Fin de Init
 
 //----------------------------------------------------- Méthodes protégées
 

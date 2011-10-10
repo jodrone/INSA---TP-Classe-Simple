@@ -115,13 +115,20 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-
-	//Méthodes de tri et de gestion de la liste
+	bool Init();
+	// Mode d'emploi :
+	// Initialise l'espace mémoire et les variables de l'objet
+	
+	bool Insertion ( Interval &element , long position );
+	// Mode d'emploi :
+	// Ajoute l'élément à la position demandée
+	
+	// méthodes de gestion de la liste d'éléments
 
 //----------------------------------------------------- Attributs protégés
 	int nombre_elements;
-	Interval* tete;
-	Interval* queue;
+	Interval *tete;
+	Interval *queue;
 
 };
 
